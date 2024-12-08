@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Maps Example</title>
+    <script src="https://maps.googleapis.com/maps/api/js?key=&callback=initMap" async defer></script>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;   
+        }
+
+        #map {
+            height: 100%; 
+            width: 100%; 
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+    center: { lat: 51.505, lng: -0.09 },
+    zoom: 8,
+    maxZoom: 21,  
+    minZoom: 3, 
+    restriction: {
+        latLngBounds: {
+            north: 85,
+            south: -85,
+            east: 180,
+            west: -180
+        },
+        strictBounds: true
+    }
+});
+
+
+            // Add a marker
+            new google.maps.Marker({
+                position: { lat: 51.505, lng: -0.09 },
+                map: map,
+                title: "You are here!",
+            });
+        }
+    </script>
+</body>
+</html>
